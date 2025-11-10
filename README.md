@@ -133,9 +133,7 @@ TodoApp/
 - Keyboard.dismiss() implementasyonu
 - Platform-specific davranışlar
 
-## Ekran Görüntüleri
 
-*(Buraya uygulamanızın ekran görüntülerini ekleyebilirsiniz)*
 
 ## Lisans
 
