@@ -141,11 +141,6 @@ TodoApp/
 
 Bu proje eğitim amaçlı geliştirilmiştir.
 
-## İletişim
-
-- **Öğrenci:** Yağız Berkutay Ayhan
-- **Numara:** 220404001
-- **GitHub:** [github.com/KULLANICI_ADIN](https://github.com/KULLANICI_ADIN)
 
 ---
 
