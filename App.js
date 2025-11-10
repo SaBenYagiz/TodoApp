@@ -1,5 +1,15 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
+import { 
+  StyleSheet, 
+  Text, 
+  View, 
+  TextInput, 
+  Button, 
+  FlatList,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TodoItem from './components/TodoItem';
 
@@ -25,6 +35,7 @@ export default function App() {
     ]);
     // Giriş alanını temizle
     setEnteredTaskText('');
+    Keyboard.dismiss(); // Klavyeyi kapat
   }
 
   function deleteTaskHandler(id) {
@@ -35,7 +46,10 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.appContainer}>
-      <View style={styles.contentContainer}>
+      <KeyboardAvoidingView
+        style={styles.contentContainer}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
         <Text style={styles.title}>Yapılacaklar Listem</Text>
         
         <View style={styles.inputContainer}>
@@ -64,7 +78,7 @@ export default function App() {
             }
           />
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -104,7 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   listContainer: {
-    flex: 5,
+    flex: 1,
   },
   emptyText: {
     textAlign: 'center',
