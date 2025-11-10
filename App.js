@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import TodoItem from './components/TodoItem';
 
 export default function App() {
   // Metin girdisi için state
@@ -41,7 +42,16 @@ export default function App() {
           <Button title="Ekle" onPress={addTaskHandler} />
         </View>
 
-        {/* Liste alanı buraya gelecek */}
+        <View style={styles.listContainer}>
+          <FlatList
+            data={tasks}
+            renderItem={({ item }) => <TodoItem text={item.text} />}
+            keyExtractor={(item) => item.id}
+            ListEmptyComponent={
+              <Text style={styles.emptyText}>Henüz görev yok. Bir tane ekle!</Text>
+            }
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -80,5 +90,14 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     marginRight: 10,
     fontSize: 16,
+  },
+  listContainer: {
+    flex: 5,
+  },
+  emptyText: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
+    color: '#888',
   },
 });
